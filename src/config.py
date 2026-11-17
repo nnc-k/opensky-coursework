@@ -1,8 +1,6 @@
 """
 Конфигурационный модуль проекта.
-
-Содержит настройки подключения к базе данных PostgreSQL,
-параметры для запросов к API и список отслеживаемых стран.
+Содержит настройки БД, параметры для API и список стран.
 """
 
 from typing import Final
@@ -11,7 +9,7 @@ from typing import Final
 DB_CONFIG: Final[dict[str, str | int]] = {
     "dbname": "opensky_db",
     "user": "postgres",
-    "password": "111297"
+    "password": "111297",
     "host": "localhost",
     "port": 5432,
 }
@@ -20,7 +18,7 @@ DB_CONFIG: Final[dict[str, str | int]] = {
 USER_AGENT: Final[str] = "Coursework_OpenSky_Project/1.0 (student@example.com)"
 REQUEST_TIMEOUT: Final[int] = 30
 
-# --- Список стран для отслеживания (минимум 10 для критерия) ---
+# --- Список стран для отслеживания ---
 COUNTRIES_TO_TRACK: Final[list[str]] = [
     "Russia",
     "United States",
@@ -36,4 +34,4 @@ COUNTRIES_TO_TRACK: Final[list[str]] = [
 
 # --- URL для API ---
 API_OPENSKY_URL: Final[str] = "https://opensky-network.org/api/states/all"
-API_NOMINATIM_URL: str = "https://nominatim.openstreetmap.org/search"
+API_NOMINATIM_URL: Final[str] = "https://nominatim.openstreetmap.org/search"
