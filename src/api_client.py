@@ -21,7 +21,7 @@ def get_country_coordinates(country_name: str) -> Country | None:
     :param country_name: Название страны на английском языке.
     :return: Объект Country с координатами или None, если страна не найдена.
     """
-    params = {
+    params: dict[str, str | int] = {
         "q": country_name,
         "format": "json",
         "limit": 1,

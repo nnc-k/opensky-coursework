@@ -40,8 +40,8 @@ def load_data() -> None:
                     """
                     INSERT INTO countries (name, iso_code, lamin, lomin, lamax, lomax)
                     VALUES (%s, %s, %s, %s, %s, %s)
-                    ON CONFLICT (name) DO UPDATE 
-                    SET lamin = EXCLUDED.lamin, lomin = EXCLUDED.lomin, 
+                    ON CONFLICT (name) DO UPDATE
+                    SET lamin = EXCLUDED.lamin, lomin = EXCLUDED.lomin,
                         lamax = EXCLUDED.lamax, lomax = EXCLUDED.lomax
                     RETURNING id;
                     """,
@@ -56,8 +56,16 @@ def load_data() -> None:
                     # 4. Массово вставляем самолеты в БД
                     values = [
                         (
-                            a.icao24, a.callsign, a.origin_country, a.longitude,
-                            a.latitude, a.altitude, a.velocity, a.heading, a.on_ground, country_id
+                            a.icao24,
+                            a.callsign,
+                            a.origin_country,
+                            a.longitude,
+                            a.latitude,
+                            a.altitude,
+                            a.velocity,
+                            a.heading,
+                            a.on_ground,
+                            country_id,
                         )
                         for a in aeroplanes
                     ]
@@ -65,8 +73,10 @@ def load_data() -> None:
                     execute_values(
                         cur,
                         """
-                        INSERT INTO aeroplanes 
-                        (icao24, callsign, origin_country, longitude, latitude, altitude, velocity, heading, on_ground, country_id)
+                        INSERT INTO aeroplanes (
+                            icao24, callsign, origin_country, longitude, latitude,
+                            altitude, velocity, heading, on_ground, country_id
+                        )
                         VALUES %s
                         """,
                         values,
