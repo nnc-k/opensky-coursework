@@ -15,7 +15,11 @@ DB_CONFIG: Final[dict[str, str | int]] = {
 }
 
 # --- Настройки для API ---
-USER_AGENT: Final[str] = "Coursework_OpenSky_Project/1.0 (student@example.com)"
+USER_AGENT: Final[str] = (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) "
+    "Chrome/120.0.0.0 Safari/537.36"
+)
 REQUEST_TIMEOUT: Final[int] = 30
 
 # --- Список стран для отслеживания ---

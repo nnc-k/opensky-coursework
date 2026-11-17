@@ -70,7 +70,10 @@ def get_aeroplanes_by_country(country: Country) -> list[Aeroplane]:
         "lamax": country.lamax,
         "lomax": country.lomax,
     }
-    headers = {"User-Agent": USER_AGENT}
+    headers = {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json",
+    }
     aeroplanes = []
 
     try:
