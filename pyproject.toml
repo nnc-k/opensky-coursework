@@ -2,7 +2,7 @@
 name = "opensky-coursework"
 version = "0.1.0"
 description = ""
-authors = ["nnc-k <katkova.a1997@gmail.com>"]
+authors = [{name = "nnc-k", email = "katkova.a1997@gmail.com"}]
 requires-python = ">=3.14"
 dependencies = [
     "requests (>=2.34.2,<3.0.0)",
@@ -51,6 +51,11 @@ addopts = "--cov=src --cov-report=term-missing --cov-report=html"
 
 [tool.coverage.run]
 source = ["src"]
+omit = [
+    "src/main.py",
+    "src/loader.py",
+    "src/country_bounds.py"
+]
 
 [tool.coverage.report]
 exclude_lines = [
